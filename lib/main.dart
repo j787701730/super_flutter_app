@@ -64,30 +64,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '超级 FLutter App',
-      themeMode: context.watch<ProviderSelf>().themeMode,
-      theme: _buildLightTheme(),
-      darkTheme: _buildDarkTheme(),
-      home: ColorFiltered(
-        colorFilter: ColorFilter.mode(
-          context.watch<ProviderSelf>().colorFilter,
-          BlendMode.color,
-        ),
-        child: MyHomePage(),
+    return ColorFiltered(
+      colorFilter: ColorFilter.mode(
+        context.watch<ProviderSelf>().colorFilter,
+        BlendMode.color,
       ),
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate, // 初始化后 复制会是英文
-        GlobalWidgetsLocalizations.delegate, // 初始化后 复制会是英文
-        // 自己要补个文件 localizations.dart
-        ChineseCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [
-        //此处
-        const Locale('zh', 'CH'),
-        const Locale('en', 'US'),
-      ],
+      child: MaterialApp(
+        title: 'Flutter App',
+        themeMode: context.watch<ProviderSelf>().themeMode,
+        theme: _buildLightTheme(),
+        darkTheme: _buildDarkTheme(),
+        home: MyHomePage(),
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate, // 初始化后 复制会是英文
+          GlobalWidgetsLocalizations.delegate, // 初始化后 复制会是英文
+          // 自己要补个文件 localizations.dart
+          ChineseCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          //此处
+          const Locale('zh', 'CH'),
+          const Locale('en', 'US'),
+        ],
+      ),
     );
   }
 }
