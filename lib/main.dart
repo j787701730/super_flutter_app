@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:superflutterapp/error-page.dart';
+import 'package:superflutterapp/weread/weread-home.dart';
 
 import 'app.dart';
 import 'utils/localizations.dart';
@@ -82,6 +84,13 @@ class MyApp extends StatelessWidget {
           // 自己要补个文件 localizations.dart
           ChineseCupertinoLocalizations.delegate,
         ],
+        routes: <String, WidgetBuilder>{
+          '/weReadHome': (_) => WeReadHome(),
+        },
+        onUnknownRoute: (RouteSettings settings) => MaterialPageRoute<void>(
+          settings: settings,
+          builder: (BuildContext context) => ErrorPage(),
+        ),
         supportedLocales: [
           //此处
           const Locale('zh', 'CH'),
