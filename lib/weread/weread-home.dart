@@ -56,8 +56,8 @@ class _WeReadHomeState extends State<WeReadHome> {
             title: Text('书架'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            title: Text('想法'),
+            icon: Icon(Icons.filter_vintage),
+            title: Text('看一看'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.perm_identity),

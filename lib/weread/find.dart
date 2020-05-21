@@ -84,187 +84,146 @@ class _FindState extends State<Find> {
     double width = MediaQuery.of(context).size.width * 0.85 - 20 - 24;
     switch (item['type']) {
       case 1:
-        return Container(
-          decoration: BoxDecoration(
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                color: Colors.black87,
-                offset: Offset(0, 1),
-              ),
-            ],
-            borderRadius: BorderRadius.all(
-              Radius.circular(
-                10,
-              ),
+        return ClipRRect(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
             ),
-            color: Colors.white,
-          ),
-          margin: EdgeInsets.only(
-            bottom: 20,
-            left: 10,
-            right: 10,
-            top: 10,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(top: 30),
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      child: Image.asset('$baseImgUrl${item['pic']}'),
-                    ),
-                    Container(
-                      child: Text(
-                        '${item['title']}',
-                        style: TextStyle(
-                          fontSize: 16,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(top: 30),
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        width: width / 3,
+                        child: Image.asset('$baseImgUrl${item['pic']}'),
+                      ),
+                      Container(
+                        child: Text(
+                          '${item['title']}',
+                          style: TextStyle(
+                            fontSize: 16,
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      child: Text('${item['author']}'),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 30),
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      child: ClipOval(
-                        child: Image.asset('$baseImgUrl${item['read_avatar']}'),
+                      Container(
+                        child: Text('${item['author']}'),
                       ),
-                    ),
-                    Container(
-                      child: Text('${item['read_name']}在读'),
-                    ),
-                    Container(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Icon(
-                            Icons.perm_identity,
-                            size: 20,
-                          ),
-                          Text(' ${item['times']}')
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              )
-            ],
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 30),
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        child: ClipOval(
+                          child: Image.asset('$baseImgUrl${item['read_avatar']}'),
+                        ),
+                      ),
+                      Container(
+                        child: Text('${item['read_name']}在读'),
+                      ),
+                      Container(
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Icon(
+                              Icons.perm_identity,
+                              size: 20,
+                            ),
+                            Text(' ${item['times']}')
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         );
         break;
       case 2:
-        return Container(
-          decoration: BoxDecoration(
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                color: Colors.black87,
-                offset: Offset(0, 1),
-              ),
-            ],
-            borderRadius: BorderRadius.all(
-              Radius.circular(
-                10,
-              ),
+        return ClipRRect(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
             ),
-            color: Colors.white,
-          ),
-          margin: EdgeInsets.only(
-            bottom: 20,
-            left: 10,
-            right: 10,
-            top: 10,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              Container(
-                child: Column(
-                  children: <Widget>[
-                    Text('讲书分享免费读'),
-                    Text('第17期'),
-                  ],
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      Text('讲书分享免费读'),
+                      Text('第17期'),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                child: Column(
-                  children: <Widget>[
-                    Wrap(
-                      spacing: 10,
-                      runSpacing: 10,
-                      children: item['list'].map<Widget>(
-                        (list) {
-                          return Container(
-                            width: width / 3 - 20,
-                            child: Column(
-                              children: <Widget>[
-                                Container(
-                                  child: Image.asset('$baseImgUrl${list['pic']}'),
-                                ),
-                                Container(
-                                  height: 50,
-                                  child: Text(
-                                    '${list['title'] * 5}',
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      Wrap(
+                        spacing: 10,
+                        runSpacing: 10,
+                        children: item['list'].map<Widget>(
+                          (list) {
+                            return Container(
+                              width: width / 3 - 20,
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Image.asset('$baseImgUrl${list['pic']}'),
                                   ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ).toList(),
-                    )
-                  ],
+                                  Container(
+                                    height: 50,
+                                    child: Text(
+                                      '${list['title'] * 5}',
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ).toList(),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                width: width - 44,
-                margin: EdgeInsets.symmetric(vertical: 30),
-                child: FLFlatButton(
-                  color: Colors.blueAccent,
-                  textColor: Colors.white,
-                  onPressed: () {},
-                  child: Text('免费领取'),
-                ),
-              )
-            ],
+                Container(
+                  width: width - 44,
+                  margin: EdgeInsets.symmetric(vertical: 30),
+                  child: FLFlatButton(
+                    color: Colors.blueAccent,
+                    textColor: Colors.white,
+                    onPressed: () {},
+                    child: Text('免费领取'),
+                  ),
+                )
+              ],
+            ),
           ),
         );
         break;
       case 3:
         return ClipRRect(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(55),
-            bottomRight: Radius.circular(55),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
           ),
           child: Container(
             decoration: BoxDecoration(
-              boxShadow: <BoxShadow>[
-                BoxShadow(
-                  color: Colors.black87,
-                  offset: Offset(0, 1),
-                ),
-              ],
-              borderRadius: BorderRadius.all(
-                Radius.circular(
-                  10,
-                ),
-              ),
               color: Colors.white,
-            ),
-            margin: EdgeInsets.only(
-              bottom: 20,
-              left: 10,
-              right: 10,
-              top: 10,
             ),
             child: Column(
               children: <Widget>[
@@ -277,7 +236,8 @@ class _FindState extends State<Find> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.baseline,
+                        textBaseline: TextBaseline.alphabetic,
                         children: <Widget>[
                           Text(
                             '翻一翻',
@@ -338,7 +298,10 @@ class _FindState extends State<Find> {
       body: PageView.builder(
         controller: _pageController,
         itemBuilder: (context, index) {
-          return pageView(context, index);
+          return Container(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 24),
+            child: pageView(context, index),
+          );
         },
         itemCount: pages.length,
       ),
