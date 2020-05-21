@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:superflutterapp/weread/account.dart';
 import 'package:superflutterapp/weread/follow.dart';
 import 'package:superflutterapp/weread/me-detail.dart';
+import 'package:superflutterapp/weread/read-notes.dart';
 import 'package:superflutterapp/weread/read-ranking-list.dart';
 
 class Me extends StatefulWidget {
@@ -384,41 +385,52 @@ class _MeState extends State<Me> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
-                  height: 70,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 24,
-                            height: 24,
-                            margin: EdgeInsets.only(
-                              right: 10,
-                            ),
-                            child: Image.asset('${baseImgUrl}b4b.webp'),
-                          ),
-                          Text('笔记、读过和赞过')
-                        ],
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ReadNotes(),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text('13个'),
-                          Text(
-                            '赞过220次',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Color(
-                                0xff999999,
+                    );
+                  },
+                  child: Container(
+                    height: 70,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              width: 24,
+                              height: 24,
+                              margin: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Image.asset('${baseImgUrl}b4b.webp'),
+                            ),
+                            Text('笔记、读过和赞过')
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text('13个'),
+                            Text(
+                              '赞过220次',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Color(
+                                  0xff999999,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Container(
