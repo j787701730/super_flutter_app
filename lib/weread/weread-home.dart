@@ -5,6 +5,10 @@ import 'package:superflutterapp/weread/idea.dart';
 import 'package:superflutterapp/weread/me.dart';
 
 class WeReadHome extends StatefulWidget {
+  final index;
+
+  WeReadHome({this.index = 0});
+
   @override
   _WeReadHomeState createState() => _WeReadHomeState();
 }
@@ -16,6 +20,7 @@ class _WeReadHomeState extends State<WeReadHome> {
   @override
   void initState() {
     super.initState();
+    _navIndex = widget.index;
     _pageController = PageController(initialPage: _navIndex);
   }
 

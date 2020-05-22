@@ -1,6 +1,7 @@
 import 'package:flui/flui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:superflutterapp/weread/book-describe.dart';
 
 class Find extends StatefulWidget {
   @override
@@ -14,8 +15,8 @@ class _FindState extends State<Find> {
     {
       'type': 1,
       'pic': 'ia_100000006.webp',
-      'title': '余文杰在斗罗大陆发家史',
-      'author': '余文杰(著)',
+      'title': '东风满太虚在斗罗大陆发家史',
+      'author': '东风满太虚(著)',
       'read_avatar': 'ia_100000000.webp',
       'read_name': '过雨',
       'times': '45'
@@ -25,38 +26,38 @@ class _FindState extends State<Find> {
       'list': [
         {
           'pic': 'ia_100000001.webp',
-          'title': '余文杰发家史',
-          'author': '余文杰',
+          'title': '东风满太虚发家史',
+          'author': '东风满太虚',
           'read_avatar': 'ia_100000000.webp',
         },
         {
           'pic': 'ia_100000002.webp',
-          'title': '余文杰发家史',
-          'author': '余文杰',
+          'title': '东风满太虚发家史',
+          'author': '东风满太虚',
           'read_avatar': 'ia_100000000.webp',
         },
         {
           'pic': 'ia_100000003.webp',
-          'title': '余文杰发家史',
-          'author': '余文杰',
+          'title': '东风满太虚发家史',
+          'author': '东风满太虚',
           'read_avatar': 'ia_100000000.webp',
         },
         {
           'pic': 'ia_100000004.webp',
-          'title': '余文杰发家史',
-          'author': '余文杰',
+          'title': '东风满太虚发家史',
+          'author': '东风满太虚',
           'read_avatar': 'ia_100000000.webp',
         },
         {
           'pic': 'ia_100000005.webp',
-          'title': '余文杰发家史',
-          'author': '余文杰',
+          'title': '东风满太虚发家史',
+          'author': '东风满太虚',
           'read_avatar': 'ia_100000000.webp',
         },
         {
           'pic': 'ia_100000006.webp',
-          'title': '余文杰发家史',
-          'author': '余文杰',
+          'title': '东风满太虚发家史',
+          'author': '东风满太虚',
           'read_avatar': 'ia_100000000.webp',
         },
       ]
@@ -84,67 +85,81 @@ class _FindState extends State<Find> {
     double width = MediaQuery.of(context).size.width * 0.85 - 20 - 24;
     switch (item['type']) {
       case 1:
-        return ClipRRect(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => BookDescribe({'pic': '$baseImgUrl${item['pic']}'}),
+              ),
+            );
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(top: 30),
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        width: width / 3,
-                        child: Image.asset('$baseImgUrl${item['pic']}'),
-                      ),
-                      Container(
-                        child: Text(
-                          '${item['title']}',
-                          style: TextStyle(
-                            fontSize: 16,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(top: 30),
+                    child: Column(
+                      children: <Widget>[
+                        Hero(
+                          tag: 'book-desc',
+                          child: Container(
+                            width: width / 3,
+                            child: Image.asset('$baseImgUrl${item['pic']}'),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Text('${item['author']}'),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 30),
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        child: ClipOval(
-                          child: Image.asset('$baseImgUrl${item['read_avatar']}'),
+                        Container(
+                          child: Text('${item['title']}'),
                         ),
-                      ),
-                      Container(
-                        child: Text('${item['read_name']}在读'),
-                      ),
-                      Container(
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Icon(
-                              Icons.perm_identity,
-                              size: 20,
+                        Container(
+                          child: Text(
+                            '${item['author']}',
+                            style: TextStyle(
+                              fontSize: 13,
                             ),
-                            Text(' ${item['times']}')
-                          ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                )
-              ],
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 30),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          child: ClipOval(
+                            child: Image.asset('$baseImgUrl${item['read_avatar']}'),
+                          ),
+                        ),
+                        Container(
+                          child: Text('${item['read_name']}在读'),
+                        ),
+                        Container(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Icon(
+                                Icons.perm_identity,
+                                size: 20,
+                              ),
+                              Text(' ${item['times']}')
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         );

@@ -1,7 +1,10 @@
+import 'package:bot_toast/bot_toast.dart';
+import 'package:flui/flui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:superflutterapp/weread/account.dart';
 import 'package:superflutterapp/weread/follow.dart';
+import 'package:superflutterapp/weread/infinite-card.dart';
 import 'package:superflutterapp/weread/me-detail.dart';
 import 'package:superflutterapp/weread/read-notes.dart';
 import 'package:superflutterapp/weread/read-ranking-list.dart';
@@ -19,7 +22,18 @@ class _MeState extends State<Me> {
     return Scaffold(
       backgroundColor: Color(0xffECEDEF),
       appBar: AppBar(
-        title: Text('我'),
+        backgroundColor: Colors.white,
+        brightness: Brightness.light,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.black87,
+        ),
+        title: Text(
+          '我',
+          style: TextStyle(
+            color: Colors.black87,
+          ),
+        ),
         leading: IconButton(
           icon: Icon(Icons.mail_outline),
           onPressed: () {},
@@ -59,15 +73,10 @@ class _MeState extends State<Me> {
                           children: <Widget>[
                             Hero(
                               tag: 'touxiang',
-                              child: ClipOval(
-                                child: Container(
-                                  width: 100,
-                                  height: 100,
-                                  child: Image.asset(
-                                    '${baseImgUrl}avatar.webp',
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
+                              child: FLAvatar(
+                                width: 100,
+                                height: 100,
+                                image: Image.asset('${baseImgUrl}avatar2.webp'),
                               ),
                             ),
                           ],
@@ -173,41 +182,52 @@ class _MeState extends State<Me> {
                     ),
                   ),
                 ),
-                Container(
-                  height: 70,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 24,
-                            height: 24,
-                            margin: EdgeInsets.only(
-                              right: 10,
-                            ),
-                            child: Image.asset('${baseImgUrl}b4c.webp'),
-                          ),
-                          Text('无限卡 · 免费试用')
-                        ],
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => InfiniteCard(),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text('还剩13天'),
-                          Text(
-                            '累计节省657.67元',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Color(
-                                0xff999999,
+                    );
+                  },
+                  child: Container(
+                    height: 70,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              width: 24,
+                              height: 24,
+                              margin: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Image.asset('${baseImgUrl}b4c.webp'),
+                            ),
+                            Text('无限卡 · 免费试用')
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text('还剩13天'),
+                            Text(
+                              '累计节省657.67元',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Color(
+                                  0xff999999,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -323,55 +343,63 @@ class _MeState extends State<Me> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(
-              top: 6,
-            ),
-            padding: EdgeInsets.symmetric(
-              horizontal: 24,
-            ),
-            color: Colors.white,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  height: 70,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 24,
-                            height: 24,
-                            margin: EdgeInsets.only(
-                              right: 10,
+          GestureDetector(
+            onTap: () {
+              BotToast.showText(
+                text: '未开发',
+                align: Alignment(0, 0),
+              );
+            },
+            child: Container(
+              margin: EdgeInsets.only(
+                top: 6,
+              ),
+              padding: EdgeInsets.symmetric(
+                horizontal: 24,
+              ),
+              color: Colors.white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    height: 70,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              width: 24,
+                              height: 24,
+                              margin: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Image.asset('${baseImgUrl}b48.webp'),
                             ),
-                            child: Image.asset('${baseImgUrl}b48.webp'),
-                          ),
-                          Text('每日一答'),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text('通关108次'),
-                          Text(
-                            '获得200天无限卡',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Color(
-                                0xff999999,
+                            Text('每日一答'),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text('通关108次'),
+                            Text(
+                              '获得200天无限卡',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Color(
+                                  0xff999999,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Container(

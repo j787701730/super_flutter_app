@@ -53,10 +53,22 @@ class _ReadRankingListState extends State<ReadRankingList> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        brightness: Brightness.light,
+        elevation: 0,
         title: FLAppBarTitle(
           title: '读书排行榜',
           subtitle: '每周日晚24时结算',
           layout: FLAppBarTitleLayout.vertical,
+          titleStyle: TextStyle(
+            color: Colors.black87,
+            height: 1,
+          ),
+          subtitleStyle: TextStyle(
+            color: Colors.black87,
+            fontSize: 12,
+            height: 1,
+          ),
         ),
         actions: <Widget>[
           IconButton(
@@ -64,6 +76,9 @@ class _ReadRankingListState extends State<ReadRankingList> {
             onPressed: () {},
           ),
         ],
+        iconTheme: IconThemeData(
+          color: Colors.black87,
+        ),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 12),
@@ -160,15 +175,13 @@ class _ReadRankingListState extends State<ReadRankingList> {
                       Container(
                         child: Text('${list.indexOf(item) + 1}'),
                       ),
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 12,
-                        ),
+                      FLAvatar(
                         width: 30,
                         height: 30,
-                        child: ClipOval(
-                          child: Image.asset('$baseImgUrl${item['avatar']}'),
-                        ),
+                        image: Image.asset('$baseImgUrl${item['avatar']}'),
+                      ),
+                      Container(
+                        width: 12,
                       ),
                       Expanded(
                         child: Text(

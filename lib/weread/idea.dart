@@ -1,3 +1,4 @@
+import 'package:flui/flui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,26 +12,26 @@ class _IdeaState extends State<Idea> {
   List books = [
     {
       'pic': 'ia_100000001.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'read_avatar': 'ia_100000000.webp',
     },
     {
       'pic': 'ia_100000002.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'read_avatar': 'ia_100000000.webp',
     },
     {
       'pic': 'ia_100000003.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'read_avatar': 'ia_100000000.webp',
     },
     {
       'pic': 'ia_100000004.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'read_avatar': 'ia_100000000.webp',
     },
   ];
@@ -38,26 +39,26 @@ class _IdeaState extends State<Idea> {
   List lists = [
     {
       'pic': 'avatar.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'type': '近期热门',
     },
     {
       'pic': 'avatar2.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'type': '已关注',
     },
     {
       'pic': 'avatar3.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'type': '近期热门',
     },
     {
       'pic': 'avatar.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'type': '已关注',
     },
   ];
@@ -248,15 +249,10 @@ class _IdeaState extends State<Idea> {
                                   ),
                                 ),
                               ),
-                              child: ClipOval(
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  child: Image.asset(
-                                    '${baseImgUrl}avatar.webp',
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
+                              child: FLAvatar(
+                                width: 40,
+                                height: 40,
+                                image: Image.asset('${baseImgUrl}avatar2.webp'),
                               ),
                             ),
                           ),
@@ -274,15 +270,10 @@ class _IdeaState extends State<Idea> {
                                   ),
                                 ),
                               ),
-                              child: ClipOval(
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  child: Image.asset(
-                                    '${baseImgUrl}avatar2.webp',
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
+                              child: FLAvatar(
+                                width: 40,
+                                height: 40,
+                                image: Image.asset('${baseImgUrl}avatar2.webp'),
                               ),
                             ),
                           ),

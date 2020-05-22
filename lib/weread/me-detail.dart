@@ -1,4 +1,8 @@
+import 'package:flui/flui.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:superflutterapp/utils/style.dart';
+import 'package:superflutterapp/weread/weread-home.dart';
 
 class MeDetail extends StatefulWidget {
   @override
@@ -10,26 +14,26 @@ class _MeDetailState extends State<MeDetail> {
   List books = [
     {
       'pic': 'ia_100000001.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'read_avatar': 'ia_100000000.webp',
     },
     {
       'pic': 'ia_100000002.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'read_avatar': 'ia_100000000.webp',
     },
     {
       'pic': 'ia_100000003.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'read_avatar': 'ia_100000000.webp',
     },
     {
       'pic': 'ia_100000004.webp',
-      'title': '余文杰发家史',
-      'author': '余文杰',
+      'title': '东风满太虚发家史',
+      'author': '东风满太虚',
       'read_avatar': 'ia_100000000.webp',
     },
   ];
@@ -38,9 +42,9 @@ class _MeDetailState extends State<MeDetail> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Color(0xff383838),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xff383838),
+        backgroundColor: Colors.white,
         title: Text('我的详情'),
         actions: <Widget>[
           IconButton(
@@ -49,11 +53,14 @@ class _MeDetailState extends State<MeDetail> {
           ),
         ],
         elevation: 0,
+        iconTheme: IconThemeData(
+          color: CommonColor.title,
+        ),
+        brightness: Brightness.light,
       ),
       body: ListView(
         children: <Widget>[
           Container(
-            color: Color(0xff383838),
             padding: EdgeInsets.symmetric(
               vertical: 12,
             ),
@@ -64,15 +71,10 @@ class _MeDetailState extends State<MeDetail> {
               children: <Widget>[
                 Hero(
                   tag: 'touxiang',
-                  child: ClipOval(
-                    child: Container(
-                      width: 100,
-                      height: 100,
-                      child: Image.asset(
-                        '${baseImgUrl}avatar.webp',
-                        fit: BoxFit.fill,
-                      ),
-                    ),
+                  child: FLAvatar(
+                    width: 100,
+                    height: 100,
+                    image: Image.asset('${baseImgUrl}avatar2.webp'),
                   ),
                 ),
                 Container(
@@ -80,9 +82,7 @@ class _MeDetailState extends State<MeDetail> {
                 ),
                 Text(
                   '男 · 福建 福州',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+                  style: TextStyle(),
                 ),
               ],
             ),
@@ -99,15 +99,11 @@ class _MeDetailState extends State<MeDetail> {
                     children: <Widget>[
                       Text(
                         '12时00分',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: TextStyle(),
                       ),
                       Text(
                         '读书时长',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: TextStyle(),
                       ),
                     ],
                   ),
@@ -117,15 +113,11 @@ class _MeDetailState extends State<MeDetail> {
                     children: <Widget>[
                       Text(
                         '1000条',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: TextStyle(),
                       ),
                       Text(
                         '收到的赞',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: TextStyle(),
                       ),
                     ],
                   ),
@@ -135,15 +127,11 @@ class _MeDetailState extends State<MeDetail> {
                     children: <Widget>[
                       Text(
                         '12人',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: TextStyle(),
                       ),
                       Text(
                         '关注我',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: TextStyle(),
                       ),
                     ],
                   ),
@@ -152,11 +140,10 @@ class _MeDetailState extends State<MeDetail> {
             ),
           ),
           Container(
-            height: 12,
+            height: 6,
             color: Color(0xffF0F0F0),
           ),
           Container(
-            color: Colors.white,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -184,7 +171,7 @@ class _MeDetailState extends State<MeDetail> {
                                 child: Image.asset('$baseImgUrl${item['pic']}'),
                               ),
                               Container(
-                                height: 50,
+                                height: 60,
                                 child: Text(
                                   '${item['title']}',
                                   maxLines: 2,
@@ -211,19 +198,210 @@ class _MeDetailState extends State<MeDetail> {
                     vertical: 12,
                   ),
                   alignment: Alignment.center,
-                  child: Text('查看书架'),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WeReadHome(
+                            index: 1,
+                          ),
+                        ),
+                        ModalRoute.withName('/home'),
+                      );
+                    },
+                    child: Text('查看书架'),
+                  ),
                 )
               ],
             ),
           ),
           Container(
-            height: 12,
+            height: 6,
             color: Color(0xffF0F0F0),
           ),
-          Container(
-            height: 500,
-            color: Colors.white,
-          ),
+          Column(
+            children: [1, 2, 2, 2, 2, 2].map<Widget>(
+              (item) {
+                return Column(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          FLAvatar(
+                            width: 30,
+                            height: 30,
+                            image: Image.asset('${baseImgUrl}avatar2.webp'),
+                          ),
+                          Container(
+                            width: 12,
+                          ),
+                          Expanded(
+                            child: Column(
+                              children: <Widget>[
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Row(
+                                      children: <Widget>[
+                                        Text('简单不快乐'),
+                                        Text(
+                                          '  点评  ',
+                                          style: TextStyle(
+                                            color: CommonColor.text2,
+                                          ),
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 16,
+                                          color: CommonColor.text2,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 16,
+                                          color: CommonColor.text2,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 16,
+                                          color: CommonColor.text2,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 16,
+                                          color: CommonColor.text2,
+                                        ),
+                                        Icon(
+                                          Icons.star_half,
+                                          size: 16,
+                                          color: CommonColor.text2,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Text(' 删除 '),
+                                        Text(
+                                          '2020/02/02',
+                                          style: TextStyle(
+                                            color: CommonColor.text2,
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: CommonColor.background,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  padding: EdgeInsets.all(12),
+                                  margin: EdgeInsets.symmetric(vertical: 12),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        margin: EdgeInsets.only(right: 12),
+                                        width: 80,
+                                        child: Image.asset('${baseImgUrl}ia_100000003.webp'),
+                                      ),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text('锋利的jQuery'),
+                                          Text('单东林'),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.launch,
+                                        color: CommonColor.text2,
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          Icon(
+                                            Icons.favorite_border,
+                                            color: CommonColor.text2,
+                                          ),
+                                          Text(
+                                            ' 12',
+                                            style: TextStyle(
+                                              color: CommonColor.text2,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          Icon(
+                                            Icons.chat_bubble_outline,
+                                            color: CommonColor.text2,
+                                          ),
+                                          Text(
+                                            ' 12',
+                                            style: TextStyle(
+                                              color: CommonColor.text2,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: CommonColor.background,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  padding: EdgeInsets.all(12),
+                                  margin: EdgeInsets.symmetric(vertical: 12),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.favorite,
+                                        color: CommonColor.text2,
+                                      ),
+                                      Container(
+                                        child: FLAvatar(
+                                          width: 30,
+                                          height: 30,
+                                          image: Image.asset('${baseImgUrl}avatar2.webp'),
+                                        ),
+                                        margin: EdgeInsets.symmetric(horizontal: 12),
+                                      ),
+                                      Text(
+                                        '等2人赞',
+                                        style: TextStyle(
+                                          color: CommonColor.text2,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 6,
+                      color: Color(0xffF0F0F0),
+                    ),
+                  ],
+                );
+              },
+            ).toList(),
+          )
         ],
         physics: ClampingScrollPhysics(),
       ),

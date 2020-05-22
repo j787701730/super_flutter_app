@@ -13,39 +13,39 @@ class _ReadNotesState extends State<ReadNotes> {
   List books = [
     {
       'pic': 'ia_100000001.webp',
-      'title': '余文杰发家史',
+      'title': '东风满太虚发家史',
     },
     {
       'pic': 'ia_100000002.webp',
-      'title': '余文杰情史',
+      'title': '东风满太虚情史',
     },
     {
       'pic': 'ia_100000003.webp',
-      'title': '余文杰艳遇史',
+      'title': '东风满太虚艳遇史',
     },
     {
       'pic': 'ia_100000004.webp',
-      'title': '余文杰邂逅史',
+      'title': '东风满太虚邂逅史',
     },
     {
       'pic': 'ia_100000005.webp',
-      'title': '余文杰后宫三千',
+      'title': '东风满太虚后宫三千',
     },
     {
       'pic': 'ia_100000006.webp',
-      'title': '余文杰通史',
+      'title': '东风满太虚通史',
     },
     {
       'pic': 'ia_100000007.webp',
-      'title': '余文杰创业史',
+      'title': '东风满太虚创业史',
     },
     {
       'pic': 'ia_100000008.webp',
-      'title': '余文杰守业史',
+      'title': '东风满太虚守业史',
     },
     {
       'pic': 'ia_100000009.webp',
-      'title': '余文杰继业史',
+      'title': '东风满太虚继业史',
     },
   ];
 
@@ -56,6 +56,7 @@ class _ReadNotesState extends State<ReadNotes> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
+        brightness: Brightness.light,
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(
           color: CommonColor.title,

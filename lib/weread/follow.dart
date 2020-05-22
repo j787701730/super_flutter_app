@@ -1,3 +1,4 @@
+import 'package:flui/flui.dart';
 import 'package:flutter/material.dart';
 import 'package:superflutterapp/utils/style.dart';
 
@@ -54,6 +55,7 @@ class _FollowState extends State<Follow> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
+        brightness: Brightness.light,
         iconTheme: IconThemeData(
           color: CommonColor.title,
         ),
@@ -115,13 +117,13 @@ class _FollowState extends State<Follow> {
                     children: <Widget>[
                       Row(
                         children: <Widget>[
+                          FLAvatar(
+                            width: 30,
+                            height: 30,
+                            image: Image.asset('${baseImgUrl}b4_.webp'),
+                          ),
                           Container(
-                            width: 40,
-                            height: 40,
-                            margin: EdgeInsets.only(right: 12),
-                            child: ClipOval(
-                              child: Image.asset('${baseImgUrl}b4_.webp'),
-                            ),
+                            width: 12,
                           ),
                           Text('微信朋友'),
                         ],
@@ -138,13 +140,13 @@ class _FollowState extends State<Follow> {
                     children: <Widget>[
                       Row(
                         children: <Widget>[
+                          FLAvatar(
+                            width: 30,
+                            height: 30,
+                            image: Image.asset('${baseImgUrl}b49.webp'),
+                          ),
                           Container(
-                            width: 40,
-                            height: 40,
-                            margin: EdgeInsets.only(right: 12),
-                            child: ClipOval(
-                              child: Image.asset('${baseImgUrl}b49.webp'),
-                            ),
+                            width: 12,
                           ),
                           Text('读书小队'),
                         ],
@@ -191,13 +193,13 @@ class _FollowState extends State<Follow> {
                           children: <Widget>[
                             Row(
                               children: <Widget>[
+                                FLAvatar(
+                                  width: 30,
+                                  height: 30,
+                                  image: Image.asset('$baseImgUrl${item['avatar']}'),
+                                ),
                                 Container(
-                                  width: 40,
-                                  height: 40,
-                                  margin: EdgeInsets.only(right: 12),
-                                  child: ClipOval(
-                                    child: Image.asset('$baseImgUrl${item['avatar']}'),
-                                  ),
+                                  width: 12,
                                 ),
                                 Text('${item['name']}'),
                               ],

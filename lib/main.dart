@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -77,6 +78,9 @@ class MyApp extends StatelessWidget {
         theme: _buildLightTheme(),
         darkTheme: _buildDarkTheme(),
         home: MyHomePage(),
+        builder: BotToastInit(),
+        //1. call BotToastInit
+        navigatorObservers: [BotToastNavigatorObserver()],
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate, // 初始化后 复制会是英文
@@ -85,6 +89,7 @@ class MyApp extends StatelessWidget {
           ChineseCupertinoLocalizations.delegate,
         ],
         routes: <String, WidgetBuilder>{
+          '/home': (_) => MyHomePage(),
           '/weReadHome': (_) => WeReadHome(),
         },
         onUnknownRoute: (RouteSettings settings) => MaterialPageRoute<void>(
