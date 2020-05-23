@@ -25,14 +25,14 @@ class _AccountState extends State<Account> {
       body: ListView(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.all(24),
+            margin: EdgeInsets.all(12),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(
                 Radius.circular(20),
               ),
               color: Colors.white,
             ),
-            padding: EdgeInsets.all(24),
+            padding: EdgeInsets.all(12),
             child: Column(
               children: <Widget>[
                 Container(
@@ -91,7 +91,7 @@ class _AccountState extends State<Account> {
               (item) {
                 return Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 24,
+                    horizontal: 12,
                   ),
                   height: 60,
                   alignment: Alignment.center,

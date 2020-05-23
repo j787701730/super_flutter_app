@@ -32,14 +32,14 @@ class _InfiniteCardState extends State<InfiniteCard> {
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 24,
+          horizontal: 12,
+          vertical: 12,
         ),
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 50, left: 24),
-            width: width - 24,
-            height: (width - 24) * 592 / 952,
+            padding: EdgeInsets.only(top: 30, left: 12),
+            width: width - 12,
+            height: (width - 12) * 592 / 952,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('${baseImgUrl}b55.webp'),
@@ -103,19 +103,19 @@ class _InfiniteCardState extends State<InfiniteCard> {
           ClipRRect(
             borderRadius: BorderRadius.all(
               Radius.circular(
-                40,
+                30,
               ),
             ),
             child: Container(
-              width: width - 24,
-              height: (width - 24) * 592 / 952,
+              width: width - 12,
+              height: (width - 12) * 592 / 952,
               decoration: BoxDecoration(
                 color: Color(0xff363945),
               ),
               child: Column(
                 children: <Widget>[
                   Container(
-                    height: 60,
+                    height: 50,
                     padding: EdgeInsets.only(left: 25),
                     color: Color(0xff40434E),
                     alignment: Alignment.centerLeft,
@@ -299,7 +299,7 @@ class _InfiniteCardState extends State<InfiniteCard> {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 24),
+            margin: EdgeInsets.symmetric(vertical: 12),
             child: ClipRRect(
               borderRadius: BorderRadius.all(
                 Radius.circular(12),
@@ -315,7 +315,7 @@ class _InfiniteCardState extends State<InfiniteCard> {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 24),
+            margin: EdgeInsets.symmetric(vertical: 12),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

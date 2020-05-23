@@ -155,6 +155,7 @@ class _FollowState extends State<Follow> {
                         children: <Widget>[
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Text('29分'),
                               Text(

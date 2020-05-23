@@ -77,8 +77,8 @@ class _IdeaState extends State<Idea> {
         children: <Widget>[
           Container(
             padding: EdgeInsets.symmetric(
-              horizontal: 24,
-              vertical: 24,
+              horizontal: 12,
+              vertical: 12,
             ),
             child: Column(
               children: <Widget>[
@@ -113,11 +113,11 @@ class _IdeaState extends State<Idea> {
                   ),
                 ),
                 Wrap(
-                  spacing: 24,
+                  spacing: 12,
                   children: books.map<Widget>(
                     (item) {
                       return Container(
-                        width: (width - 48 - 24 * 3) / 4,
+                        width: (width - 24 - 12 * 3) / 4,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -139,7 +139,7 @@ class _IdeaState extends State<Idea> {
                   ).toList(),
                 ),
                 Container(
-                  width: width - 48,
+                  width: width - 24,
                   child: ClipRRect(
                     child: FlatButton(
                       padding: EdgeInsets.symmetric(
@@ -165,8 +165,8 @@ class _IdeaState extends State<Idea> {
           ),
           Container(
             padding: EdgeInsets.symmetric(
-              horizontal: 24,
-              vertical: 24,
+              horizontal: 12,
+              vertical: 12,
             ),
             child: Row(
               children: <Widget>[
@@ -177,8 +177,8 @@ class _IdeaState extends State<Idea> {
                         children: <Widget>[
                           Container(
                             padding: EdgeInsets.symmetric(
-                              vertical: 6,
-                              horizontal: 10,
+                              vertical: 2,
+                              horizontal: 8,
                             ),
                             decoration: BoxDecoration(
                               color: Color(0xff4186E7),
@@ -193,11 +193,13 @@ class _IdeaState extends State<Idea> {
                                 Icon(
                                   Icons.favorite,
                                   color: Colors.white,
+                                  size: 16,
                                 ),
                                 Text(
                                   ' 10+',
                                   style: TextStyle(
                                     color: Colors.white,
+                                    fontSize: 12,
                                   ),
                                 ),
                               ],
@@ -206,7 +208,7 @@ class _IdeaState extends State<Idea> {
                           Text(
                             ' 朋友赞过',
                             style: TextStyle(
-                              fontSize: 24,
+                              fontSize: 18,
                               color: Color(0xff4186E7),
                             ),
                           ),
@@ -323,8 +325,8 @@ class _IdeaState extends State<Idea> {
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(
-                        horizontal: 24,
-                        vertical: 24,
+                        horizontal: 12,
+                        vertical: 12,
                       ),
                       child: Column(
                         children: <Widget>[
@@ -343,7 +345,7 @@ class _IdeaState extends State<Idea> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(left: 24),
+                                margin: EdgeInsets.only(left: 12),
                                 width: width * 0.15,
                                 height: width * 0.15,
                                 child: Image.asset('$baseImgUrl${item['pic']}'),

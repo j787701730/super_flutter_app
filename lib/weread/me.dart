@@ -74,8 +74,8 @@ class _MeState extends State<Me> {
                             Hero(
                               tag: 'touxiang',
                               child: FLAvatar(
-                                width: 100,
-                                height: 100,
+                                width: 80,
+                                height: 80,
                                 image: Image.asset('${baseImgUrl}avatar2.webp'),
                               ),
                             ),
@@ -108,7 +108,7 @@ class _MeState extends State<Me> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(bottom: 12),
+                    padding: EdgeInsets.only(bottom: 12,left: 24,right: 24,),
                     child: Text(
                       '佛为心，道为骨，儒为表，大度看世界；技在手，能在身，思在脑，从容过生活。',
                       style: TextStyle(
@@ -117,6 +117,7 @@ class _MeState extends State<Me> {
                           0xff999999,
                         ),
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   )
                 ],
@@ -128,7 +129,7 @@ class _MeState extends State<Me> {
               top: 6,
             ),
             padding: EdgeInsets.symmetric(
-              horizontal: 24,
+              horizontal: 12,
             ),
             color: Colors.white,
             child: Column(
@@ -238,7 +239,7 @@ class _MeState extends State<Me> {
               top: 6,
             ),
             padding: EdgeInsets.symmetric(
-              horizontal: 24,
+              horizontal: 12,
             ),
             color: Colors.white,
             child: Column(
@@ -355,7 +356,7 @@ class _MeState extends State<Me> {
                 top: 6,
               ),
               padding: EdgeInsets.symmetric(
-                horizontal: 24,
+                horizontal: 12,
               ),
               color: Colors.white,
               child: Column(
@@ -407,7 +408,7 @@ class _MeState extends State<Me> {
               top: 6,
             ),
             padding: EdgeInsets.symmetric(
-              horizontal: 24,
+              horizontal: 12,
             ),
             color: Colors.white,
             child: Column(

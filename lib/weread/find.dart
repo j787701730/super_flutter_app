@@ -82,7 +82,7 @@ class _FindState extends State<Find> {
 
   pageView(context, index) {
     Map item = pages[index];
-    double width = MediaQuery.of(context).size.width * 0.85 - 20 - 24;
+    double width = MediaQuery.of(context).size.width * 0.85 - 20 - 12;
     switch (item['type']) {
       case 1:
         return GestureDetector(
@@ -245,7 +245,7 @@ class _FindState extends State<Find> {
                 Container(
                   padding: EdgeInsets.symmetric(
                     vertical: 40,
-                    horizontal: 24,
+                    horizontal: 12,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -314,7 +314,7 @@ class _FindState extends State<Find> {
         controller: _pageController,
         itemBuilder: (context, index) {
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 24),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
             child: pageView(context, index),
           );
         },

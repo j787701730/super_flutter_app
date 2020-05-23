@@ -149,21 +149,21 @@ class _MeDetailState extends State<MeDetail> {
               children: <Widget>[
                 Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 24,
+                    horizontal: 12,
                     vertical: 12,
                   ),
                   child: Text('最近阅读'),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 24,
+                    horizontal: 12,
                   ),
                   child: Wrap(
-                    spacing: 24,
+                    spacing: 12,
                     children: books.map<Widget>(
                       (item) {
                         return Container(
-                          width: (width - 48 - 24 * 3) / 4,
+                          width: (width - 48 - 12 * 3) / 4,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
