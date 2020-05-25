@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:superflutterapp/error-page.dart';
+import 'package:superflutterapp/netease_music/netease-home.dart';
 import 'package:superflutterapp/weread/weread-home.dart';
 
 import 'app.dart';
@@ -91,6 +92,7 @@ class MyApp extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           '/home': (_) => MyHomePage(),
           '/weReadHome': (_) => WeReadHome(),
+          '/netEaseHome': (_) => NetEaseHome(),
         },
         onUnknownRoute: (RouteSettings settings) => MaterialPageRoute<void>(
           settings: settings,

@@ -34,6 +34,7 @@ dependencies:
   provider: 4.1.2
   bot_toast: 3.0.0
   bubble: 1.1.9+1
+  flutter_swiper: 1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +52,7 @@ flutter:
   uses-material-design: true
   assets:
     - images/weread/
+    - images/netease/
   #  fonts:
   #    - family: SourceHanSerifCN
   #      fonts:

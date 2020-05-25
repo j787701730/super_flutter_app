@@ -19,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List list = [
     {'name': '微信读书', 'route': '/weReadHome'},
-//    {'name': '微信读书', 'route': '/weReadHome'},
+    {'name': '网易音乐', 'route': '/netEaseHome'},
   ];
 
   @override
