@@ -1,7 +1,10 @@
 import 'package:flui/flui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:superflutterapp/utils/style.dart';
 import 'package:superflutterapp/weread/book-describe.dart';
+import 'package:superflutterapp/weread/free-library.dart';
+import 'package:superflutterapp/weread/listen-book.dart';
 
 class Find extends StatefulWidget {
   @override
@@ -65,6 +68,15 @@ class _FindState extends State<Find> {
     {
       'type': 3,
       'pic': 'fanyifan.webp',
+    },
+    {
+      'type': 4,
+      'pic': 'ia_100000008.webp',
+      'title': '东风满太虚在斗罗大陆发家史',
+      'author': '东风满太虚(著)',
+      'read_avatar': 'ia_100000000.webp',
+      'read_name': '过雨',
+      'times': '45'
     }
   ];
 
@@ -165,68 +177,82 @@ class _FindState extends State<Find> {
         );
         break;
       case 2:
-        return ClipRRect(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => FreeLibrary(),
+              ),
+            );
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      Text('讲书分享免费读'),
-                      Text('第17期'),
-                    ],
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text('讲书分享免费读'),
+                        Text('第17期'),
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      Wrap(
-                        spacing: 10,
-                        runSpacing: 10,
-                        children: item['list'].map<Widget>(
-                          (list) {
-                            return Container(
-                              width: width / 3 - 20,
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    child: Image.asset('$baseImgUrl${list['pic']}'),
-                                  ),
-                                  Container(
-                                    height: 50,
-                                    child: Text(
-                                      '${list['title'] * 5}',
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
+                  Container(
+                    child: Column(
+                      children: <Widget>[
+                        Wrap(
+                          spacing: 12,
+                          runSpacing: 12,
+                          children: item['list'].map<Widget>(
+                            (list) {
+                              return Container(
+                                width: width / 3 - 20,
+                                child: Column(
+                                  children: <Widget>[
+                                    Container(
+                                      child: Image.asset('$baseImgUrl${list['pic']}'),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        ).toList(),
-                      )
-                    ],
+                                    Container(
+                                      height: 50,
+                                      child: Text(
+                                        '${list['title'] * 5}',
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          ).toList(),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  width: width - 44,
-                  margin: EdgeInsets.symmetric(vertical: 30),
-                  child: FLFlatButton(
-                    color: Colors.blueAccent,
-                    textColor: Colors.white,
-                    onPressed: () {},
-                    child: Text('免费领取'),
-                  ),
-                )
-              ],
+                  Container(
+                    width: width - 44,
+                    margin: EdgeInsets.symmetric(vertical: 30),
+                    child: FLFlatButton(
+                      color: Colors.blueAccent,
+                      textColor: Colors.white,
+                      onPressed: () {},
+                      child: Text('免费领取'),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         );
@@ -295,6 +321,94 @@ class _FindState extends State<Find> {
           ),
         );
         break;
+      case 4:
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ListenBook(),
+                fullscreenDialog: true,
+              ),
+            );
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(top: 30),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          width: width / 2,
+                          child: Image.asset('$baseImgUrl${item['pic']}'),
+                        ),
+                        Container(
+                          child: Text('${item['title']}'),
+                        ),
+                        Container(
+                          child: Text(
+                            '${item['author']}',
+                            style: TextStyle(
+                              fontSize: 13,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: width - 44,
+                    margin: EdgeInsets.symmetric(vertical: 30),
+                    child: FLFlatButton(
+                      color: Colors.blueAccent,
+                      textColor: Colors.white,
+                      onPressed: () {},
+                      child: Text('立即收听'),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 30),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          child: ClipOval(
+                            child: Image.asset('$baseImgUrl${item['read_avatar']}'),
+                          ),
+                        ),
+                        Container(
+                          child: Text('${item['read_name']}在读'),
+                        ),
+                        Container(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Icon(
+                                Icons.perm_identity,
+                                size: 20,
+                              ),
+                              Text(' ${item['times']}')
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+        break;
       default:
         return Container(
           alignment: Alignment.center,
@@ -307,8 +421,13 @@ class _FindState extends State<Find> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('发现'),
-        leading: Container(),
+        backgroundColor: Colors.white,
+        brightness: Brightness.light,
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        iconTheme: IconThemeData(
+          color: CommonColor.title,
+        ),
       ),
       body: PageView.builder(
         controller: _pageController,

@@ -8,6 +8,7 @@ import 'package:superflutterapp/weread/infinite-card.dart';
 import 'package:superflutterapp/weread/me-detail.dart';
 import 'package:superflutterapp/weread/read-notes.dart';
 import 'package:superflutterapp/weread/read-ranking-list.dart';
+import 'package:superflutterapp/weread/set-up.dart';
 
 class Me extends StatefulWidget {
   @override
@@ -41,7 +42,14 @@ class _MeState extends State<Me> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.settings),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SetUp(),
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -108,7 +116,11 @@ class _MeState extends State<Me> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(bottom: 12,left: 24,right: 24,),
+                    padding: EdgeInsets.only(
+                      bottom: 12,
+                      left: 24,
+                      right: 24,
+                    ),
                     child: Text(
                       '佛为心，道为骨，儒为表，大度看世界；技在手，能在身，思在脑，从容过生活。',
                       style: TextStyle(

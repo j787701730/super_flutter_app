@@ -1,6 +1,7 @@
 import 'package:flui/flui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:superflutterapp/utils/style.dart';
 
 class Idea extends StatefulWidget {
   @override
@@ -69,9 +70,13 @@ class _IdeaState extends State<Idea> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('看一看'),
-        leading: Container(),
+        backgroundColor: Colors.white,
+        brightness: Brightness.light,
         elevation: 0,
+        automaticallyImplyLeading: false,
+        iconTheme: IconThemeData(
+          color: CommonColor.title,
+        ),
       ),
       body: ListView(
         children: <Widget>[
