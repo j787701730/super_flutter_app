@@ -6,6 +6,7 @@ import 'package:superflutterapp/weread/account.dart';
 import 'package:superflutterapp/weread/follow.dart';
 import 'package:superflutterapp/weread/infinite-card.dart';
 import 'package:superflutterapp/weread/me-detail.dart';
+import 'package:superflutterapp/weread/notice.dart';
 import 'package:superflutterapp/weread/read-notes.dart';
 import 'package:superflutterapp/weread/read-ranking-list.dart';
 import 'package:superflutterapp/weread/set-up.dart';
@@ -37,7 +38,14 @@ class _MeState extends State<Me> {
         ),
         leading: IconButton(
           icon: Icon(Icons.mail_outline),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Notice(),
+              ),
+            );
+          },
         ),
         actions: <Widget>[
           IconButton(

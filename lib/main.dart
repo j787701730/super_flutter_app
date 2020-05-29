@@ -9,6 +9,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:superflutterapp/error-page.dart';
 import 'package:superflutterapp/netease_music/netease-home.dart';
+import 'package:superflutterapp/utils/style.dart';
 import 'package:superflutterapp/weread/weread-home.dart';
 
 import 'app.dart';
@@ -43,6 +44,10 @@ class MyApp extends StatelessWidget {
         subtitle2: TextStyle(
           textBaseline: TextBaseline.alphabetic,
         ),
+        bodyText2: TextStyle(
+          fontSize: 14,
+          color: CommonColor.text,
+        ),
       ),
     );
     return base;
@@ -60,6 +65,10 @@ class MyApp extends StatelessWidget {
       textTheme: TextTheme(
         subtitle2: TextStyle(
           textBaseline: TextBaseline.alphabetic,
+        ),
+        bodyText2: TextStyle(
+          fontSize: 14,
+          color: CommonColor.text,
         ),
       ),
     );

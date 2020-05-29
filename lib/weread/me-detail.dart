@@ -72,8 +72,8 @@ class _MeDetailState extends State<MeDetail> {
                 Hero(
                   tag: 'touxiang',
                   child: FLAvatar(
-                    width: 100,
-                    height: 100,
+                    width: 80,
+                    height: 80,
                     image: Image.asset('${baseImgUrl}avatar2.webp'),
                   ),
                 ),
@@ -163,7 +163,7 @@ class _MeDetailState extends State<MeDetail> {
                     children: books.map<Widget>(
                       (item) {
                         return Container(
-                          width: (width - 48 - 12 * 3) / 4,
+                          width: (width - 24 - 12 * 3) / 4,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
